@@ -218,7 +218,6 @@ int main(){
    t1.subject ="com" ;
    cout<<t1.name ;
 }
-*/
 //hierarchical inheritance
 class Person{
 public :
@@ -241,7 +240,96 @@ class TA : public Student , public Teacher{
 };
 int main(){
    TA t1 ;
-   t1.name = "ASHU" ;
-   t1.subject ="com" ;
-   cout<<t1.name ;
+  // t1.name = "ASHU" ;
+  // t1.subject ="com" ;
+  // cout<<t1.name ;
 }
+
+//Polymorphism
+//Polymorphism is the ability of object to take in different forms or behave in different ways depending on the context in which they are used 
+//1.Compile Time 2.Runtime Polymorphism
+
+//COMPILE TIME POLYMORPHISM EXAMPLE - 1.CONSTRUCTOR OVERLOADING 2.FUNCTION OVERLOADING
+//constructor overloading - same name constructor but parameter different example of polymorphism 
+//FUNCTION OVERLOADING - Same function name different parameter no of parameter or type of  parameter in their return type same or differ does not matter in the same class 
+class Print{
+   public :
+   void show(int n){
+      cout<<"int :"<< n <<endl ;
+   }
+   void show (char c){
+      cout<<"char :"<<c <<endl ;
+   }
+}
+
+//Runtime Polymorphism
+//1.function overriding - inheritance deals parent and child contain the same function with different implementation 
+//parent class function is said to be overriden 
+//2.Virtual Function = a virtual function is a member function that you expect to be redefined in derieved classes
+//Virtual Functions Properties 
+//1.Dynamic nature,2.defined by the keyword "virtual" inside a base class and are always declared with a base class and overriden in child class 3.virtual functions is called during runtime
+class Parent{
+   public :
+  void getInfo(){
+    cout<<"parent class\n" ;
+   }
+   virtual void hello(){
+      cout<<"hello from parent" ;
+   }
+};
+class Child : public Parent{
+   public :
+   void getInfo(){
+      cout<<"Child class\n" ;
+   }
+   void hello(){
+      cout<<"hello from child" ;
+   }
+};
+int main(){
+    Child p1 ;
+   p1.hello() ;
+   }
+   
+  //ABSTRACTION 
+  //hiding all unnecessary details and showing only the important parts
+  //using access modifiers
+  //abstract means khayal in hindi 
+  //using abstract classes 
+  //1.abstract classes are used to provide a base class from which other classes can be derieved
+  //2.they cannot be instantiated and are meant to be inherited
+  //3.abstract classes are typically used to define an interface for derieved classes 
+//mainly classes are blueprint for the object but in abstract classes are used only for inheritance mainly show ki dusri classes kesi honi chiye
+//instantiated means unki object nhi bn skti
+//instance basically object
+//example for abstract class 
+class Shape { //automatic abstract class
+   virtual void draw() = 0 ; //pure virtual function
+};//not can use for making object it gives error
+class Circle : public Shape {
+   public:
+   void draw(){
+  cout<<"drawing color\n" ;
+   }
+};
+int main(){
+   Circle c1 ;
+   c1.draw() ;
+}
+
+//Static Keyword 
+//STATIC VARIABLES
+//variables declared as static in a function are created qnd intialised once for the lifetime of the program .//in function
+//static variables in a class are created and intialised once.they are shared by all 
+void fun(){
+   static int x = 0;
+   cout<<"x : "<< x << endl ;
+   x++ ;
+}
+int main(){
+   fun() ;
+   fun() ;
+   fun() ;   
+}
+*/
+//friend functiona nd friend class 
